@@ -15,7 +15,7 @@ module.exports = {
   },
   optimization: {
     runtimeChunk: false
-  },   
+  },
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
@@ -29,12 +29,13 @@ module.exports = {
         library: { type: "module" },
 
         // For remotes (please adjust)
-        // name: "mfeApp",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './projects/mfe-app/src/app/app.component.ts',
-        // },        
-        
+        name: "mfeApp", // Name of microfrontend
+        filename: "remoteEntry.js", // Name of exposed your module
+        exposes: {
+            // './Component': './projects/mfe-app/src/app/app.component.ts',
+            './TodoModule': './projects/mfe-app/src/app/todo-list/todo-list.module.ts', // Expose to TodoModule
+        },
+
         // For hosts (please adjust)
         // remotes: {
         //     "hostApp": "http://localhost:4200/remoteEntry.js",
@@ -42,14 +43,14 @@ module.exports = {
         // },
 
         shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
+          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
 
           ...sharedMappings.getDescriptors()
         })
-        
+
     }),
     sharedMappings.getPlugin()
   ],
