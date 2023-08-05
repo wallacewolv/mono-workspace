@@ -6,7 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve host-app -o` for a dev server. Navigate to `http://localhost:4200/` and
+run `ng serve mfe-app -o` for a dev server. Navigate to `http://localhost:4300/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -30,23 +31,23 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Command Reference
 
-ng new mono-workspace --create-application=false
-cd mono-workspace
-ng g application host-app --routing --style=scss
-ng g application mfe-app --routing --style=scss
-ng s host-app -o
-ng s mfe-app -o --port 4300
-npm i webpack webpack-cli --save-dev
-ng add @angular-architects/module-federation --project host-app --port 4200
-ng add @angular-architects/module-federation --project mfe-app --port 4300
+ng new mono-workspace --create-application=false\
+cd mono-workspace\
+ng g application host-app --routing --style=scss\
+ng g application mfe-app --routing --style=scss\
+ng s host-app -o\
+ng s mfe-app -o --port 4300\
+npm i webpack webpack-cli --save-dev\
+ng add @angular-architects/module-federation --project host-app --port 4200\
+ng add @angular-architects/module-federation --project mfe-app --port 4300\
 
-After configuring module federation in mfe-app, run:
+After configuring module federation in mfe-app, run:\
 ng s mfe-app -o
 
-ng g c home --project=host-app
+ng g c home --project=host-app\
 ng g c todo --project=host-app
 
-ng g module todo-list --project=mfe-app
+ng g module todo-list --project=mfe-app\
 ng g c todo-list --project=mfe-app
 
 
