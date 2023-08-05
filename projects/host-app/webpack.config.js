@@ -11,11 +11,12 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "hostApp",
-    publicPath: "auto"
+    publicPath: "auto",
+    scriptType: "text/javascript",
   },
   optimization: {
     runtimeChunk: false
-  },   
+  },
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
@@ -29,27 +30,27 @@ module.exports = {
         library: { type: "module" },
 
         // For remotes (please adjust)
-        // name: "hostApp",
+        name: "hostApp",
         // filename: "remoteEntry.js",
         // exposes: {
         //     './Component': './projects/host-app/src/app/app.component.ts',
-        // },        
-        
-        // For hosts (please adjust)
-        // remotes: {
-        //     "mfeApp": "http://localhost:4200/remoteEntry.js",
-
         // },
 
+        // For hosts (please adjust)
+        remotes: {
+            "mfeApp": "mfeApp@http://localhost:4300/remoteEntry.js", // Get the key for the remote object
+
+        },
+
         shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
+          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
 
           ...sharedMappings.getDescriptors()
         })
-        
+
     }),
     sharedMappings.getPlugin()
   ],

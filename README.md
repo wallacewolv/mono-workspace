@@ -48,3 +48,6 @@ ng g c todo --project=host-app
 
 ng g module todo-list --project=mfe-app
 ng g c todo-list --project=mfe-app
+
+
+http://localhost:4300/remoteEntry.js -> Watch the generated MFE webpack
