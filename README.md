@@ -42,3 +42,6 @@ ng add @angular-architects/module-federation --project mfe-app --port 4300
 
 After configuring module federation in mfe-app, run:
 ng s mfe-app -o
+
+ng g c home --project=host-app
+ng g c todo --project=host-app
